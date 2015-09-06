@@ -83,7 +83,7 @@
   "Meteor Methods":
     "prefix": "methods"
     "body": "Meteor.methods({
-      \n\t${1:methodName}:function() {
+      \n\t${1:methodName}: function() {
       \n\t\t${2:}
       \n\t}
       \n});"
