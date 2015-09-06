@@ -46,15 +46,15 @@
 
   "Meteor.isClient":
     "prefix": "isClient"
-    "body": "if(Meteor.isClient) {\n\t${1:}\n}"
+    "body": "if (Meteor.isClient) {\n\t${1:}\n}"
 
   "Meteor.isServer":
     "prefix": "isServer"
-    "body": "if(Meteor.isServer) {\n\t${1:}\n}"
+    "body": "if (Meteor.isServer) {\n\t${1:}\n}"
 
   "Meteor.isCordova":
     "prefix": "isCordova"
-    "body": "if(Meteor.isCordova) {\n\t${1:}\n}"
+    "body": "if (Meteor.isCordova) {\n\t${1:}\n}"
 
   "Meteor.startup":
     "prefix": "startup"
@@ -96,10 +96,10 @@
   "Meteor.call":
     "prefix": "call"
     "body": "Meteor.call('${1:meteorMethod}', ${2:dataObject}, function(error, result) {
-    \n\tif(error) {
+    \n\tif (error) {
     \n\t\tconsole.log('error', error);
     \n\t}
-    \n\tif(result) {
+    \n\tif (result) {
     \n\t\t${3:}
     \n\t}
     \n});"
@@ -556,50 +556,50 @@
   "HTTP Call":
     "prefix": "httpcall"
     "body": "HTTP.call('${1:meteorMethod}', function(error, result) {
-    \n\tif(error) {
+    \n\tif (error) {
     \n\t\tconsole.log('error', error);
     \n\t}
-    \n\tif(result) {
+    \n\tif (result) {
     \n\t\t${2:}
     \n\t}
     \n});"
   "HTTP Get":
     "prefix": "httpget"
     "body": "HTTP.get('${1:meteorMethod}', function(error, result) {
-    \n\tif(error) {
+    \n\tif (error) {
     \n\t\tconsole.log('error', error);
     \n\t}
-    \n\tif(result) {
+    \n\tif (result) {
     \n\t\t${2:}
     \n\t}
     \n});"
   "HTTP.post":
     "prefix": "httppost"
     "body": "HTTP.post('${1:meteorMethod}', ${2:dataObject}, function(error, result) {
-    \n\tif(error) {
+    \n\tif (error) {
     \n\t\tconsole.log('error', error);
     \n\t}
-    \n\tif(result) {
+    \n\tif (result) {
     \n\t\t${3:}
     \n\t}
     \n});"
   "HTTP.put":
     "prefix": "http.put"
     "body": "HTTP.put('${1:meteorMethod}', ${2:dataObject}, function(error, result) {
-    \n\tif(error) {
+    \n\tif (error) {
     \n\t\tconsole.log('error', error);
     \n\t}
-    \n\tif(result) {
+    \n\tif (result) {
     \n\t\t${3:}
     \n\t}
     \n});"
   "HTTP.del":
     "prefix": "httpdel"
     "body": "HTTP.del('${1:meteorMethod}', function(error, result) {
-    \n\tif(error) {
+    \n\tif (error) {
     \n\t\tconsole.log('error', error);
     \n\t}
-    \n\tif(result) {
+    \n\tif (result) {
     \n\t\t${2:}
     \n\t}
     \n});"
@@ -614,7 +614,7 @@
     "prefix": "Email"
     "body": "Email.send({
       \n\tfrom: '${1:sender@somewhere.net}',
-      \nif(result) {
+      \nif (result) {
     \n\t\t${2:}
     \n\t}
     \n});"
@@ -647,19 +647,19 @@
   "Assets.getText":
     "prefix": "getText"
     "body": "Assets.getText('${1:assetPath}', function(error, result) {
-      \n\tif(error) {
+      \n\tif (error) {
       \n\t\tconsole.log('error', error);
       \n\t}
-      \n\tif(result) {
+      \n\tif (result) {
       \n\t\t${2:}
       \n\t}
       \n});"
   "Assets.getBinary":
     "prefix": "getBinary"
-    "body": "Assets.getBinary('${1:assetPath}', function(error, result) {\n\tif(error) {
+    "body": "Assets.getBinary('${1:assetPath}', function(error, result) {\n\tif (error) {
     \n\t\tconsole.log('error', error);
     \n\t}
-    \n\tif(result) {
+    \n\tif (result) {
     \n\t\t${2:}
     \n\t}
     \n});"
