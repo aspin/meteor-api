@@ -194,7 +194,7 @@
   "Collection":
     "prefix": "Collection"
     "body": "${1:CollectionName} = new Mongo.Collection('${2:name}');
-      \n${3:CollectionName}.allow({
+      \n\n${3:CollectionName}.allow({
       \n\tinsert: function() {
       \n\t\treturn ${4:true};
       \n\t},
@@ -205,6 +205,26 @@
       \n\t\treturn ${6:true};
       \n\t}
       \n});\n${7:}"
+
+  "Collection.observeChanges":
+    "prefix": "observeChanges"
+    "body": "${1:Collection}.observeChanges({
+        \n\tadded: function(id, fields) {
+        \n\t\t${2: // ...}
+        \n\t},
+        \n\taddedBefore: function(id, fields, before) {
+        \n\t\t${3: // ...}
+        \n\t},
+        \n\tchanged: function(id, fields) {
+        \n\t\t${4: // ...}
+        \n\t},
+        \n\tmovedBefore: function(id, fields) {
+        \n\t\t${5: // ...}
+        \n\t},
+        \n\tremoved: function(id) {
+        \n\t\t${6: // ...}
+        \n\t},
+        \n});"
 
 
 #===================================================
