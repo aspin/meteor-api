@@ -302,24 +302,24 @@
 
   "Accounts.validateNewUser":
     "prefix": "validateNewUser"
-    "body": "Meteor.validateNewUser(function() {
+    "body": "Accounts.validateNewUser(function() {
       \n\t${1:}
       \n});"
 
   "Accounts.onCreateUser":
     "prefix": "onCreateUser"
-    "body": "Meteor.onCreateUser(function(options, user) {
+    "body": "Accounts.onCreateUser(function(options, user) {
       \n\t${1:}
-      \n\treturn ${1:user}
+      \n\treturn ${2:user}
       \n});"
   "Accounts.onLogin":
     "prefix": "onLogin"
-    "body": "Meteor.onLogin(function() {
+    "body": "Accounts.onLogin(function() {
       \n\t${1:}
       \n});"
   "Accounts.onLoginFailure":
     "prefix": "onLoginFailure"
-    "body": "Meteor.onLoginFailure(function() {
+    "body": "Accounts.onLoginFailure(function() {
       \n\t${1:}
       \n});"
 
@@ -692,9 +692,9 @@
     "prefix": "configure"
     "body": "
       Router.configure({
-      \n\tlayoutTemplate:'${1:layoutTemplate}',
-      \n\tnotFoundTemplate:'${2:notFoundTemplate}',
-      \n\tloadingTemplate:'${3:loadingTemplate}',
+      \n\tlayoutTemplate: '${1:layoutTemplate}',
+      \n\tnotFoundTemplate: '${2:notFoundTemplate}',
+      \n\tloadingTemplate: '${3:loadingTemplate}',
       \n\tyieldRegions:{
       \n\t\t'${4:myAside}': {to: 'aside'}
       \n\t\t'${5:myHeader}': {to: 'header'},
@@ -717,24 +717,24 @@
     "prefix": "route"
     "body": "
       Router.route('${1:routePath}', {
-      \n\tname:'${2:routeName}',
-      \n\ttemplate:'${3:templateName}',
-      \n\twaitOn:function() {
+      \n\tname: '${2:routeName}',
+      \n\ttemplate: '${3:templateName}',
+      \n\twaitOn: function() {
       \n\t\t${4:subscriptions}
       \n\t},
-      \n\tdata:function() {
+      \n\tdata: function() {
       \n\t\t${5: dataFunction}
       \n\t},
-      \n\tonBeforeAction:function() {
+      \n\tonBeforeAction: function() {
       \n\t\t${6}
       \n\t},
-      \n\tonAfterAction:function() {
+      \n\tonAfterAction: function() {
       \n\t\t${7}
       \n\t},
-      \n\tonRun:function() {
+      \n\tonRun: function() {
       \n\t\t${8}
       \n\t},
-      \n\tonReRun:function() {
+      \n\tonReRun: function() {
       \n\t\t${9}
       \n\t}
       \n});
