@@ -165,13 +165,13 @@
   "Collection.allow":
     "prefix": "allow"
     "body": "${1:Collection}.allow({
-      \n\tinsert: function() {
+      \n\tinsert: function(userId, doc) {
       \n\t\treturn ${2:true};
       \n\t},
-      \n\tupdate: function() {
+      \n\tupdate: function(userId, doc, fields, modifier) {
       \n\t\treturn ${3:true};
       \n\t},
-      \n\tremove: function() {
+      \n\tremove: function(userId, doc) {
       \n\t\treturn ${4:true};
       \n\t}
       \n});\n${5:}"
@@ -179,13 +179,13 @@
   "Collection.deny":
     "prefix": "deny"
     "body": "${1:Collection}.deny({
-      \n\tinsert: function() {
+      \n\tinsert: function(userId, doc) {
       \n\t\treturn ${2:false};
       \n\t},
-      \n\tupdate: function() {
+      \n\tupdate: function(userId, doc, fields, modifier) {
       \n\t\treturn ${3:false};
       \n\t},
-      \n\tremove: function() {
+      \n\tremove: function(userId, doc) {
       \n\t\treturn ${4:false};
       \n\t}
       \n});\n${5:}"
@@ -194,15 +194,15 @@
   "Collection":
     "prefix": "Collection"
     "body": "${1:CollectionName} = new Mongo.Collection('${2:name}');
-      \n\n${3:CollectionName}.allow({
-      \n\tinsert: function() {
+      \n\n${1:CollectionName}.allow({
+      \n\tinsert: function(userId, doc) {
+      \n\t\treturn ${3:true};
+      \n\t},
+      \n\tupdate: function(userId, doc, fields, modifier) {
       \n\t\treturn ${4:true};
       \n\t},
-      \n\tupdate: function() {
+      \n\tremove: function(userId, doc) {
       \n\t\treturn ${5:true};
-      \n\t},
-      \n\tremove: function() {
-      \n\t\treturn ${6:true};
       \n\t}
       \n});\n${7:}"
 
