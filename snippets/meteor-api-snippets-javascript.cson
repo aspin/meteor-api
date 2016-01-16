@@ -58,7 +58,7 @@
 
   "Meteor.startup":
     "prefix": "startup"
-    "body": "Meteor.startup(function() {\n\t${1:}\n});"
+    "body": "Meteor.startup(() => {\n\t${1:}\n});"
 
   "Meteor.absoluteUrl":
     "prefix": "absolute"
@@ -70,7 +70,7 @@
 
   "Meteor Publish":
     "prefix": "publish"
-    "body": "Meteor.publish('${1:name}', function(${2:argument}) {\n\t${3:}\n});"
+    "body": "Meteor.publish('${1:name}', (${2:argument}) => {\n\t${3:}\n});"
 
   "Meteor Subscribe":
     "prefix": "subscribe"
@@ -83,7 +83,7 @@
   "Meteor Methods":
     "prefix": "methods"
     "body": "Meteor.methods({
-      \n\t${1:methodName}: function() {
+      \n\t${1:methodName}: () => {
       \n\t\t${2:}
       \n\t}
       \n});"
@@ -95,7 +95,7 @@
 
   "Meteor.call":
     "prefix": "call"
-    "body": "Meteor.call('${1:meteorMethod}', ${2:dataObject}, function(error, result) {
+    "body": "Meteor.call('${1:meteorMethod}', ${2:dataObject}, (error, result) => {
     \n\tif (error) {
     \n\t\tconsole.log('error', error);
     \n\t}
@@ -125,7 +125,7 @@
 
   "Meteor.onConnection":
     "prefix": "onConnection"
-    "body": "Meteor.onConnection(function() {
+    "body": "Meteor.onConnection(() => {
       \n\t${1:}
       \n});"
 
@@ -165,13 +165,13 @@
   "Collection.allow":
     "prefix": "allow"
     "body": "${1:Collection}.allow({
-      \n\tinsert: function(userId, doc) {
+      \n\tinsert: (userId, doc) => {
       \n\t\treturn ${2:true};
       \n\t},
-      \n\tupdate: function(userId, doc, fields, modifier) {
+      \n\tupdate: (userId, doc, fields, modifier) => {
       \n\t\treturn ${3:true};
       \n\t},
-      \n\tremove: function(userId, doc) {
+      \n\tremove: (userId, doc) => {
       \n\t\treturn ${4:true};
       \n\t}
       \n});\n${5:}"
@@ -179,13 +179,13 @@
   "Collection.deny":
     "prefix": "deny"
     "body": "${1:Collection}.deny({
-      \n\tinsert: function(userId, doc) {
+      \n\tinsert: (userId, doc) => {
       \n\t\treturn ${2:false};
       \n\t},
-      \n\tupdate: function(userId, doc, fields, modifier) {
+      \n\tupdate: (userId, doc, fields, modifier) => {
       \n\t\treturn ${3:false};
       \n\t},
-      \n\tremove: function(userId, doc) {
+      \n\tremove: (userId, doc) => {
       \n\t\treturn ${4:false};
       \n\t}
       \n});\n${5:}"
@@ -195,13 +195,13 @@
     "prefix": "Collection"
     "body": "${1:CollectionName} = new Mongo.Collection('${2:name}');
       \n\n${1:CollectionName}.allow({
-      \n\tinsert: function(userId, doc) {
+      \n\tinsert: (userId, doc) => {
       \n\t\treturn ${3:true};
       \n\t},
-      \n\tupdate: function(userId, doc, fields, modifier) {
+      \n\tupdate: (userId, doc, fields, modifier) => {
       \n\t\treturn ${4:true};
       \n\t},
-      \n\tremove: function(userId, doc) {
+      \n\tremove: (userId, doc) => {
       \n\t\treturn ${5:true};
       \n\t}
       \n});\n${7:}"
@@ -209,19 +209,19 @@
   "Collection.observeChanges":
     "prefix": "observeChanges"
     "body": "${1:Collection}.observeChanges({
-        \n\tadded: function(id, fields) {
+        \n\tadded: (id, fields) => {
         \n\t\t${2: // ...}
         \n\t},
-        \n\taddedBefore: function(id, fields, before) {
+        \n\taddedBefore: (id, fields, before) => {
         \n\t\t${3: // ...}
         \n\t},
-        \n\tchanged: function(id, fields) {
+        \n\tchanged: (id, fields) => {
         \n\t\t${4: // ...}
         \n\t},
-        \n\tmovedBefore: function(id, fields) {
+        \n\tmovedBefore: (id, fields) => {
         \n\t\t${5: // ...}
         \n\t},
-        \n\tremoved: function(id) {
+        \n\tremoved: (id) => {
         \n\t\t${6: // ...}
         \n\t},
         \n});"
@@ -267,17 +267,17 @@
     "body": "Meteor.loggingIn()"
   "Meteor.logout":
     "prefix": "logout"
-    "body": "Meteor.logout(function() {
+    "body": "Meteor.logout(() => {
       \n\t${1:}
       \n});"
   "Meteor.logoutOtherClients":
     "prefix": "logoutOtherClients"
-    "body": "Meteor.logoutOtherClients(function() {
+    "body": "Meteor.logoutOtherClients(() => {
       \n\t${1:}
       \n});"
   "Meteor.loginWithPassword":
     "prefix": "logoutOtherClients"
-    "body": "Meteor.logoutOtherClients(${1:user}, ${2:password}, function() {
+    "body": "Meteor.logoutOtherClients(${1:user}, ${2:password}, () => {
       \n\t${3:}
       \n});"
 
@@ -302,24 +302,24 @@
 
   "Accounts.validateNewUser":
     "prefix": "validateNewUser"
-    "body": "Accounts.validateNewUser(function() {
+    "body": "Accounts.validateNewUser(() => {
       \n\t${1:}
       \n});"
 
   "Accounts.onCreateUser":
     "prefix": "onCreateUser"
-    "body": "Accounts.onCreateUser(function(options, user) {
+    "body": "Accounts.onCreateUser((options, user) => {
       \n\t${1:}
       \n\treturn ${2:user}
       \n});"
   "Accounts.onLogin":
     "prefix": "onLogin"
-    "body": "Accounts.onLogin(function() {
+    "body": "Accounts.onLogin(() => {
       \n\t${1:}
       \n});"
   "Accounts.onLoginFailure":
     "prefix": "onLoginFailure"
-    "body": "Accounts.onLoginFailure(function() {
+    "body": "Accounts.onLoginFailure(() => {
       \n\t${1:}
       \n});"
 
@@ -337,22 +337,22 @@
       \n\tpassword: '${1:password}'
       \n};
       \n
-      \nAccounts.createUser(${1:userObject}, function() {
+      \nAccounts.createUser(${1:userObject}, () => {
       \n\t${1:}
       \n});"
   "Accounts.changePassword":
     "prefix": "changePassword"
-    "body": "Accounts.changePassword(${1:oldPassword}, ${2:newPassword}, function() {
+    "body": "Accounts.changePassword(${1:oldPassword}, ${2:newPassword}, () => {
       \n\t${1:}
       \n});"
   "Accounts.forgotPassword":
     "prefix": "forgotPassword"
-    "body": "Accounts.forgotPassword({email: '${1:address}'}, function() {
+    "body": "Accounts.forgotPassword({email: '${1:address}'}, () => {
       \n\t${2:}
       \n});"
   "Accounts.resetPassword":
     "prefix": "resetPassword"
-    "body": "Accounts.resetPassword(${1:token}, ${2:newPassword}, function() {
+    "body": "Accounts.resetPassword(${1:token}, ${2:newPassword}, () => {
       \n\t${3:}
       \n});"
   "Accounts.setPassword":
@@ -360,7 +360,7 @@
     "body": "Accounts.setPassword(${1:userId}, ${2:newPassword});"
   "Accounts.verifyEmail":
     "prefix": "verifyEmail"
-    "body": "Accounts.verifyEmail(${1:token}, function() {
+    "body": "Accounts.verifyEmail(${1:token}, () => {
       \n\t${1:}
       \n});"
   "Accounts.sendResetPasswordEmail":
@@ -394,13 +394,13 @@
 
   "Meteor.setTimeout":
     "prefix": "setTimeout"
-    "body": "Meteor.setTimeout(function() {
+    "body": "Meteor.setTimeout(() =>{
     \n\t${2:}
     \n}, ${1:milliseconds});"
 
   "Meteor.setInterval":
     "prefix": "setInterval"
-    "body": "Meteor.setInterval(function() {
+    "body": "Meteor.setInterval(() => {
     \n\t${2:}
     \n}, ${1:milliseconds});"
 
@@ -418,7 +418,7 @@
 
   "Tracker.autorun":
     "prefix": "autorun"
-    "body": "Tracker.autorun(function() {
+    "body": "Tracker.autorun(() => {
     \n\t${2:}
     \n});"
 
@@ -428,19 +428,19 @@
 
   "Tracker.nonreactive":
     "prefix": "nonreactive"
-    "body": "Tracker.nonreactive(function() {
+    "body": "Tracker.nonreactive(() => {
     \n\t${2:}
     \n});"
 
   "Tracker.onInvalidate":
     "prefix": "onInvalidate"
-    "body": "Tracker.onInvalidate(function() {
+    "body": "Tracker.onInvalidate(() => {
     \n\t${2:}
     \n});"
 
   "Tracker.afterFlush":
     "prefix": "afterFlush"
-    "body": "Tracker.afterFlush(function() {
+    "body": "Tracker.afterFlush(() => {
     \n\t${2:}
     \n});"
 
@@ -458,13 +458,13 @@
 
   "Template Rendered":
     "prefix": "rendered"
-    "body": "Template.${1:name}.onRendered(function() {\n\t${2}\n});"
+    "body": "Template.${1:name}.onRendered(() => {\n\t${2}\n});"
 
   "Template Events":
       "prefix": "events"
       "body": "
         Template.${1:name}.events({
-        \n\t'click ${2:#event}': function(event, template) {
+        \n\t'click ${2:#event}': (event, template) => {
         \n\t\t${3:}
         \n\t}
         \n});
@@ -472,7 +472,7 @@
   "Template Created":
     "prefix": "created"
     "body": "
-      Template.${1:name}.onCreated(function() {
+      Template.${1:name}.onCreated(() => {
       \n\t${2:}
       \n});
     "
@@ -480,7 +480,7 @@
   "Template Destroyed":
     "prefix": "destroyed"
     "body": "
-      Template.${1:name}.onDestroyed(function() {
+      Template.${1:name}.onDestroyed(() => {
       \n\t${2:}
       \n});
     "
@@ -489,18 +489,18 @@
     "prefix": "Template"
     "body": "
       \nTemplate.${1:name}.helpers({
-      \n\tcreate: function() {
+      \n\tcreate: () => {
       \n\t\t${2:}
       \n\t},
-      \n\trendered: function() {
+      \n\trendered: () => {
       \n\t\t${3:}
       \n\t},
-      \n\tdestroyed: function() {
+      \n\tdestroyed: () => {
       \n\t\t${4:}
       \n\t},
       \n});
       \n\nTemplate.${9:name}.events({
-      \n\t'${5:click #foo}': function(event, template) {
+      \n\t'${5:click #foo}': (event, template) => {
       \n\t\t${6:}
       \n\t}
       \n});
@@ -509,11 +509,11 @@
 
   "Template Helpers":
     "prefix": "helpers"
-    "body": "Template.${1:name}.helpers({\n\trendered: function() {\n\t\t${2}\n\t}\n});"
+    "body": "Template.${1:name}.helpers({\n\trendered: () => {\n\t\t${2}\n\t}\n});"
 
   "Template.registerHelper":
     "prefix": "registerHelper"
-    "body": "Template.registerHelper('${1:helperName}', function(${2:argument}) {\n\t${3}\n});"
+    "body": "Template.registerHelper('${1:helperName}', (${2:argument}) => {\n\t${3}\n});"
 
 
 #===================================================
@@ -575,7 +575,7 @@
 
   "HTTP Call":
     "prefix": "httpcall"
-    "body": "HTTP.call('${1:meteorMethod}', function(error, result) {
+    "body": "HTTP.call('${1:meteorMethod}', (error, result) => {
     \n\tif (error) {
     \n\t\tconsole.log('error', error);
     \n\t}
@@ -585,7 +585,7 @@
     \n});"
   "HTTP Get":
     "prefix": "httpget"
-    "body": "HTTP.get('${1:meteorMethod}', function(error, result) {
+    "body": "HTTP.get('${1:meteorMethod}', (error, result) => {
     \n\tif (error) {
     \n\t\tconsole.log('error', error);
     \n\t}
@@ -595,7 +595,7 @@
     \n});"
   "HTTP.post":
     "prefix": "httppost"
-    "body": "HTTP.post('${1:meteorMethod}', ${2:dataObject}, function(error, result) {
+    "body": "HTTP.post('${1:meteorMethod}', ${2:dataObject}, (error, result) => {
     \n\tif (error) {
     \n\t\tconsole.log('error', error);
     \n\t}
@@ -605,7 +605,7 @@
     \n});"
   "HTTP.put":
     "prefix": "http.put"
-    "body": "HTTP.put('${1:meteorMethod}', ${2:dataObject}, function(error, result) {
+    "body": "HTTP.put('${1:meteorMethod}', ${2:dataObject}, (error, result) => {
     \n\tif (error) {
     \n\t\tconsole.log('error', error);
     \n\t}
@@ -615,7 +615,7 @@
     \n});"
   "HTTP.del":
     "prefix": "httpdel"
-    "body": "HTTP.del('${1:meteorMethod}', function(error, result) {
+    "body": "HTTP.del('${1:meteorMethod}', (error, result) => {
     \n\tif (error) {
     \n\t\tconsole.log('error', error);
     \n\t}
@@ -666,7 +666,7 @@
 
   "Assets.getText":
     "prefix": "getText"
-    "body": "Assets.getText('${1:assetPath}', function(error, result) {
+    "body": "Assets.getText('${1:assetPath}', (error, result) => {
       \n\tif (error) {
       \n\t\tconsole.log('error', error);
       \n\t}
@@ -676,7 +676,7 @@
       \n});"
   "Assets.getBinary":
     "prefix": "getBinary"
-    "body": "Assets.getBinary('${1:assetPath}', function(error, result) {\n\tif (error) {
+    "body": "Assets.getBinary('${1:assetPath}', (error, result) => {\n\tif (error) {
     \n\t\tconsole.log('error', error);
     \n\t}
     \n\tif (result) {
@@ -705,7 +705,7 @@
   "Router":
     "prefix": "Router"
     "body": "
-      Router.route('${1:routePath}', function() {
+      Router.route('${1:routePath}', () => {
       \n\tthis.layout('${2:ApplicationLayout}');
       \n\tthis.render('${5:PostHeader}', {to: 'header'});
       \n\tthis.render('${4:PostAside}', {to: 'aside')
@@ -719,22 +719,22 @@
       Router.route('${1:routePath}', {
       \n\tname: '${2:routeName}',
       \n\ttemplate: '${3:templateName}',
-      \n\twaitOn: function() {
+      \n\twaitOn: () => {
       \n\t\t${4:subscriptions}
       \n\t},
-      \n\tdata: function() {
+      \n\tdata: () => {
       \n\t\t${5: dataFunction}
       \n\t},
-      \n\tonBeforeAction: function() {
+      \n\tonBeforeAction: () => {
       \n\t\t${6}
       \n\t},
-      \n\tonAfterAction: function() {
+      \n\tonAfterAction: () => {
       \n\t\t${7}
       \n\t},
-      \n\tonRun: function() {
+      \n\tonRun: () => {
       \n\t\t${8}
       \n\t},
-      \n\tonReRun: function() {
+      \n\tonReRun: () => {
       \n\t\t${9}
       \n\t}
       \n});
@@ -743,22 +743,22 @@
     "prefix": "UpsertRoute"
     "body": "
       Router.route('/add/${1:routePath},'{
-      \n\tname:'${2:routeName}',
-      \n\ttemplate:'${3:routeTemplate}'
+      \n\tname: '${2:routeName}',
+      \n\ttemplate: '${3:routeTemplate}'
       \n});
 
       Router.route('/edit/${1:routePath}/:${4:paramId},'{
-      \n\tname:'${2:routeName}',
-      \n\ttemplate:'${3:routeTemplate}'
-      \n\tdata:function() {
+      \n\tname: '${2:routeName}',
+      \n\ttemplate: '${3:routeTemplate}'
+      \n\tdata: () => {
       \n\t\treturn ${5: collectionName}.findOne({_id: this.params.${4:paramId}});
       \n\t},
-      \n\tonBeforeAction:function() {
+      \n\tonBeforeAction: () => {
       \n\t\tSession.set('${7}', this.params.${4:paramId}});
       \n\t\t${8}
       \n\t\tthis.next();
       \n\t},
-      \n\tonAfterAction:function() {
+      \n\tonAfterAction: () => {
       \n\t\t${9}
       \n\t},
       \n});
@@ -777,12 +777,12 @@
       \n});
       \n
       \nTemplate.${4:pageTemplate}.helpers({
-      \n\trendered: function() {
+      \n\trendered: () => {
       \n\t\t${5:}
       \n\t}
       \n});
       \n\nTemplate.${4:pageTemplate}.events({
-      \n\t'${6:click} #${7:elementId}': function(event, template) {
+      \n\t'${6:click} #${7:elementId}': (event, template) => {
       \n\t\t${8}
       \n\t}
       \n});
@@ -814,3 +814,22 @@
   "attributeEquals":
     "prefix": "ae"
     "body": ".verify.attributeEquals('#${1}', 'value', '${2}')${3}"
+
+#===================================================
+# Tinytest
+
+  "Tinytest.add":
+    "prefix": "add"
+    "body": "
+      Tinytest.add('${1:description}', (test) => {
+        \n\t${2:}
+        \n});
+    "
+
+  "Tinytest.addAsync":
+    "prefix": "addAsync"
+    "body": "
+      Tinytest.addAsync('${1:description}', (test, next) => {
+        \n\t${2:}
+        \n});
+    "
